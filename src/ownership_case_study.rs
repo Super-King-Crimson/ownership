@@ -271,10 +271,10 @@ fn safe_but_rejected_array_read_write() {
     //borrowed as mutable: a[_] has no RWO perms
     let x = &mut a[0];
 
-    //requires R perms: if y is ever used, will violate Pointer Safety Principle (is what compiler thinks)
+    //requires R perms: if used, will violate Pointer Safety Principle (is what compiler thinks)
     let y = &a[1];
 
-    //VIOLATED! (it's actually safe though. we see a[0] a[1], compiler sees  a[_] a[_])
+    //VIOLATED! (it's actually safe though. we see a[0] a[1], compiler sees  a[_] a[_]: aliased and mutated)
     //*x += *y;
 
     //Even though this is safe, borrow checker limitations prevent

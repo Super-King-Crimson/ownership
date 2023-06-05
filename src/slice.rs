@@ -116,4 +116,8 @@ fn showcase_other_slices() {
     //Ka Ta Na
     //Works the same way as string slices: stores reference to the part of the array
     let slice: &[u8] = &slice_me[1..4];
+
+    //Also works with vectors (a slice of vector filled with string slices):
+    let slice_me_too: Vec<&str> = vec!["kiru", "katana", "zero-point", "bone-slasher"];
+    let slice2: &[&str] = &slice_me_too[2..];
 }

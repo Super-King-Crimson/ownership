@@ -122,4 +122,10 @@ fn the_alternative() {
     fn get_words(this: &Document) -> &[String] {
         this.as_slice()
     }
+
+    //Everything is explicit: you know the document returns a reference, that the constructor takes ownership
+
+    let mut val = String::from("He");
+    let val_ptr = &mut val;
+    val_ptr.push_str("llo");
 }
